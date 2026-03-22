@@ -32,7 +32,7 @@ export default function DaftarSuratComp() {
         <div className="max-w-6xl mx-auto mt-8 px-4">
             <div className="grid md:grid-cols-3 gap-6">
                 {surat.map((item) => (
-                <Link key={item.nomor} to={`/surah/${item.nomor}`} className="flex items-center justify-between p-5 bg-gray-100 rounded-xl hover:shadow-md transition">
+                <Link key={item.nomor} to={`/surat/${item.nomor}`} className="flex items-center justify-between p-5 bg-gray-100 rounded-xl hover:shadow-md transition">
                     <div className="flex items-center gap-4">
                     <div className="text-lg font-bold text-gray-800">{item.nomor}</div>
                         <div>
@@ -45,5 +45,5 @@ export default function DaftarSuratComp() {
                 ))}
             </div>            
         </div>
-    );
+  );
 }
