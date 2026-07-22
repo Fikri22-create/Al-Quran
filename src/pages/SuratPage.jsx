@@ -15,7 +15,7 @@ export default function SuratPage() {
   const { nomor } = useParams();
   const [surat, setSurat] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [qori, setQori] = useState("05");
+  const [qori, setQori] = useState("01");
   const [currentIndex, setCurrentIndex] = useState(null);
   const audioRef = useRef(null);
   const ayatRefs = useRef([]);
@@ -78,27 +78,27 @@ export default function SuratPage() {
     <div className="flex flex-col h-full bg-gray-50">
       <div className="sticky top-0 z-10 bg-white border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-4 py-4 space-y-3">
-          <Link to="/" className="flex items-center gap-2 text-sm text-gray-500 hover:text-green-600 transition" ><IoArrowBack />Kembali ke Beranda</Link>
-          <div className="bg-white rounded-2xl p-5 shadow-sm flex justify-between items-center border border-gray-100">
+          <Link to="/" className="flex items-center gap-2 text-sm text-gray-500 hover:text-green-600 transition"><IoArrowBack />Kembali ke Beranda</Link>
+          <div className="bg-white rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 border border-gray-100">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-100 text-green-600 font-semibold">{surat.nomor}</div>
+              <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-green-100 text-green-600 font-semibold">{surat.nomor}</div>
               <div>
                 <h1 className="text-base font-semibold text-gray-800">
                   {surat.namaLatin}
                   <span className="text-gray-400 text-sm ml-2">{surat.arti}</span>
                 </h1>
-                <p className="text-xs text-gray-500">{surat.tempatTurun} {surat.jumlahAyat} ayat</p>
+                <p className="text-xs text-gray-500">{surat.tempatTurun} · {surat.jumlahAyat} ayat</p>
               </div>
             </div>
-            <div className="text-2xl text-green-600 font-semibold">{surat.nama}</div>
+            <div className="text-2xl text-green-600 font-semibold text-right sm:text-left">{surat.nama}</div>
           </div>
           <div className="flex items-center gap-3 flex-wrap">
-            <select value={qori} onChange={(e) => setQori(e.target.value)} className="border border-green-600 px-3 py-2 rounded-lg text-sm bg-white">
+            <select value={qori} onChange={(e) => setQori(e.target.value)} className="border border-green-600 px-3 py-2 rounded-lg text-sm bg-white flex-1 min-w-0">
               {QORI_LIST.map((q) => (
                 <option key={q.kode} value={q.kode}>{q.nama}</option>
               ))}
             </select>
-            <button onClick={() => setCurrentIndex(0)}className="flex items-center gap-2  bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm transition"><IoPlay />Play Audio Full</button>
+            <button onClick={() => setCurrentIndex(0)} className="flex items-center gap-2 bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm transition whitespace-nowrap"><IoPlay />Play Audio Full</button>
           </div>
         </div>
       </div>

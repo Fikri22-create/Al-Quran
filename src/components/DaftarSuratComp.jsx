@@ -6,7 +6,7 @@ export default function DaftarSuratComp() {
     const [surat, setSurat] = useState([]);
     const [loading, setLoading] = useState(true);
 
-      const getSurat = async () => {
+    const getSurat = async () => {
         try {
         const response = await fetch("https://equran.id/api/v2/surat");
         const result = await response.json();
@@ -30,7 +30,7 @@ export default function DaftarSuratComp() {
 
     return (
         <div className="max-w-6xl mx-auto mt-8 px-4">
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {surat.map((item) => (
                 <Link key={item.nomor} to={`/surat/${item.nomor}`} className="flex items-center justify-between p-5 bg-gray-100 rounded-xl hover:shadow-md transition">
                     <div className="flex items-center gap-4">
@@ -45,5 +45,5 @@ export default function DaftarSuratComp() {
                 ))}
             </div>            
         </div>
-  );
+    );
 }
